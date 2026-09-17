@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WB-WAM: Heterogeneous Body–Hand Pretraining for Humanoid Loco-Manipulation. Research overview, benchmark results, and task demonstrations.">
+  <meta name="description" content="WB-WAM: Heterogeneous Body–Hand Pre-training for Humanoid Loco-Manipulation. Research overview, benchmark results, and task demonstrations.">
   <meta name="theme-color" content="#ffffff">
   <title>WB-WAM · Humanoid Loco-Manipulation</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23286dc9'/%3E%3Cpath d='M12 22l8 22 12-22 12 22 8-22' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/research.css?v=20260917-hero-overlay">
-  <script src="assets/results-data.js" defer></script>
-  <script src="assets/research.js" defer></script>
+  <link rel="stylesheet" href="assets/research.css?v=20260917-dataset-centered">
+  <script src="assets/results-data.js?v=20260917-bed-replacement" defer></script>
+  <script src="assets/research.js?v=20260917-dataset-numbers" defer></script>
+  <script src="assets/figure-interactions.js?v=20260917-dataset-alignment" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,8 +26,7 @@
       <div class="hero-intro">
         <img class="hero-robot" src="assets/hero-robot.png" width="1996" height="1140" fetchpriority="high" alt="" aria-hidden="true">
       <div class="hero-copy">
-        <div class="eyebrow hero-eyebrow">WORLD ACTION MODEL · HUMANOID ROBOTICS</div>
-        <h1 id="paper-title" class="hero-title hero-enter"><span class="paper-name">WB-WAM</span><span class="paper-subtitle">Heterogeneous <span class="title-phrase">Body–Hand</span> Pretraining<br class="desktop-break"> for Humanoid Loco-Manipulation</span></h1>
+        <h1 id="paper-title" class="hero-title hero-enter"><span class="paper-name">WB-WAM</span><span class="paper-subtitle">Heterogeneous <span class="title-phrase">Body–Hand</span> Pre-training<br class="desktop-break"> for Humanoid Loco-Manipulation</span></h1>
         <ol class="paper-authors hero-enter" aria-label="Authors in publication order">
           <li>Chuan Qin<sup>*</sup></li>
           <li>Shaoting Zhu<sup>*</sup></li>
@@ -54,39 +54,44 @@
       </div>
       </div>
       <div class="hero-content shell">
-      <div class="abstract-block reveal"><h2>Overview</h2><p>WB-WAM incorporates body, root, and dexterous hand supervision into generative video pretraining. A three-stage training framework combines heterogeneous pretraining, retargeted PICO demonstrations, and robot task adaptation in a shared physical action space. We evaluate the model in simulation and on a physical humanoid, with additional studies of data efficiency and language-conditioned manipulation.</p></div>
-      <div class="research-facts reveal"><span><strong>1,880.2 h</strong> heterogeneous pretraining</span><span><strong>72-D</strong> physical action space</span><span><strong>Three stages</strong> from pretraining to adaptation</span></div>
+      <div class="abstract-block reveal"><h2>Overview</h2><p>WB-WAM incorporates body, root, and dexterous hand supervision into generative video pre-training. A three-stage training framework combines heterogeneous pre-training, retargeted PICO demonstrations, and robot task adaptation in a shared physical action space. We evaluate the model in simulation and on a physical humanoid, with additional studies of data efficiency and language-conditioned manipulation.</p></div>
+      <div class="research-facts reveal"><span><strong>1,880.2 h</strong> heterogeneous pre-training</span><span><strong>72-D</strong> physical action space</span><span><strong>3 stages</strong> from pre-training to adaptation</span></div>
       </div>
     </section>
     <section class="method-section section shell" id="method" aria-labelledby="method-title">
-      <div class="section-heading"><div><div class="section-kicker reveal">01 / METHOD</div><h2 class="section-title reveal" id="method-title">Whole-body pretraining.<br><span class="muted">A three-stage framework.</span></h2></div></div>
-      <p class="method-intro reveal">WB-WAM incorporates explicit whole-body action supervision into generative video pretraining, jointly learning visual dynamics and action trajectories in a shared physical action space.</p>
-      <figure class="paper-figure method-paper-figure reveal"><a class="method-figure-link" id="method-figure-link" href="assets/method-pipeline.pdf" target="_blank" rel="noopener" aria-label="Open the full-resolution WB-WAM method figure"><img id="method-image" src="assets/method-pipeline.png" width="3000" height="1802" loading="lazy" decoding="async" alt="WB-WAM architecture and three-stage training: heterogeneous pretraining, retargeted PICO mid-training, and robot post-training. Video and action experts model visual dynamics and physical references, with SONIC for body and root control and direct commands for the hands."></a><figcaption><p>Top: Progressive training integrates heterogeneous supervision, retargeted PICO motion, and real-robot demonstrations. Bottom: Video and action experts jointly model visual dynamics and whole-body actions conditioned on vision, language, and proprioception. Body and root references are executed through SONIC, while hand references directly control the finger joints.</p><a id="method-fullsize-link" href="assets/method-pipeline.pdf" target="_blank" rel="noopener">View full-size figure <span aria-hidden="true">↗</span></a></figcaption></figure>
-      <div class="training-summary reveal"><article><span>Stage I</span><h3>Heterogeneous pretraining</h3><p>Joint video and action learning from heterogeneous datasets with complementary body and hand annotations.</p></article><article><span>Stage II</span><h3>PICO mid-training</h3><p>Motion transfer from egocentric human demonstrations with retargeted body, root, and hand references.</p></article><article><span>Stage III</span><h3>Robot post-training</h3><p>Task-specific adaptation using robot demonstrations and auxiliary forward kinematics supervision.</p></article></div>
+      <div class="section-heading"><div><div class="section-kicker reveal">01 / METHOD</div><h2 class="section-title reveal" id="method-title">Whole-body pre-training.<br><span class="muted">A three-stage framework.</span></h2></div></div>
+      <p class="method-intro reveal">WB-WAM incorporates explicit whole-body action supervision into generative video pre-training, jointly learning visual dynamics and action trajectories in a shared physical action space.</p>
+      <figure class="paper-figure method-paper-figure reveal"><a class="method-figure-link" id="method-figure-link" href="assets/method-pipeline.png" data-figure-title="WB-WAM architecture and three-stage training" aria-label="Enlarge the WB-WAM method figure"><img id="method-image" src="assets/method-pipeline.png" width="3000" height="1802" loading="lazy" decoding="async" alt="WB-WAM architecture and three-stage training: heterogeneous pre-training, retargeted PICO mid-training, and robot post-training. Video and action experts model visual dynamics and physical references, with SONIC for body and root control and direct commands for the hands."></a><figcaption><p>Top: Progressive training integrates heterogeneous supervision, retargeted PICO motion, and real-robot demonstrations. Bottom: Video and action experts jointly model visual dynamics and whole-body actions conditioned on vision, language, and proprioception. Body and root references are executed through SONIC, while hand references directly control the finger joints.</p><a id="method-fullsize-link" href="assets/method-pipeline.png" data-figure-title="WB-WAM architecture and three-stage training">View full-size figure <span aria-hidden="true">↗</span></a></figcaption></figure>
+      <div class="training-summary reveal"><article><span>Stage I</span><h3>Heterogeneous pre-training</h3><p>Joint video and action learning from heterogeneous datasets with complementary body and hand annotations.</p></article><article><span>Stage II</span><h3>PICO mid-training</h3><p>Motion transfer from egocentric human demonstrations with retargeted body, root, and hand references.</p></article><article><span>Stage III</span><h3>Robot post-training</h3><p>Task-specific adaptation using robot demonstrations and auxiliary forward kinematics supervision.</p></article></div>
     </section>
     <section class="datasets-section section shell" id="datasets" aria-labelledby="datasets-title">
-      <div class="section-heading"><div><div class="section-kicker reveal">02 / DATASETS</div><h2 class="section-title reveal" id="datasets-title">WB-Datasets.<br><span class="muted">Data for each training stage.</span></h2></div><p class="section-aside reveal">Heterogeneous pretraining, human demonstrations,<br>and real-robot teleoperation.</p></div>
+      <div class="section-heading"><div><div class="section-kicker reveal">02 / DATASETS</div><h2 class="section-title reveal" id="datasets-title">WB-Datasets.<br><span class="muted">Data for each training stage.</span></h2></div><p class="section-aside reveal">Heterogeneous pre-training, human demonstrations,<br>and real-robot teleoperation.</p></div>
       <div class="datasets-grid">
         <article class="dataset-card dataset-pretrain reveal" aria-labelledby="pretrain-data-title">
-          <div class="dataset-card-heading"><span class="dataset-stage">STAGE I</span><h3 id="pretrain-data-title">Heterogeneous pretraining data</h3></div>
+          <div class="dataset-card-heading"><span class="dataset-stage">STAGE I</span><h3 id="pretrain-data-title">Heterogeneous pre-training data</h3></div>
           <div class="dataset-duration"><strong>1,880.2</strong><span>hours</span></div>
           <p class="dataset-description">Nine external datasets provide complementary supervision through video paired with body and hand motion, video paired with hand motion, and text-conditioned body motion.</p>
           <figure class="dataset-figure">
-            <a href="assets/datasets-overview.pdf" target="_blank" rel="noopener" aria-label="Open the original pretraining dataset figure as a PDF"><img src="assets/datasets-overview.png" width="2200" height="1753" loading="lazy" decoding="async" alt="Pretraining dataset composition totaling 1,880.2 hours: video with body and hand annotations, video with hand annotations, and text-conditioned body motion."></a>
-            <figcaption>Composition of the nine-source pretraining corpus, grouped by available supervision.<a href="assets/datasets-overview.pdf" target="_blank" rel="noopener">View full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+            <div class="dataset-chart" id="dataset-chart" hidden>
+              <div id="dataset-donut" class="dataset-donut"></div>
+              <p class="dataset-chart-hint">Hover or select a source to explore the corpus.</p>
+              <div id="dataset-legend" class="dataset-legend"></div>
+              <p class="sr-only" id="dataset-selection" role="status"></p>
+            </div>
+            <a id="dataset-static" href="assets/datasets-overview.png" data-figure-title="Pre-training dataset composition" aria-label="Enlarge the original pre-training dataset figure"><img src="assets/datasets-overview.png" width="2200" height="1753" loading="lazy" decoding="async" alt="Pre-training dataset composition totaling 1,880.2 hours: video with body and hand annotations, video with hand annotations, and text-conditioned body motion."></a>
+            <figcaption>Composition of the nine-source pre-training corpus, grouped by available supervision.<a href="assets/datasets-overview.png" data-figure-title="Pre-training dataset composition">View original figure <span aria-hidden="true">↗</span></a></figcaption>
           </figure>
         </article>
         <div class="dataset-transfer">
           <article class="dataset-card dataset-pico reveal" aria-labelledby="pico-data-title">
             <div class="dataset-card-heading"><span class="dataset-stage">STAGE II</span><h3 id="pico-data-title">PICO data</h3></div>
-            <p class="dataset-description">Egocentric recordings pair video with body motion retargeted to G1 through GMR and constrained whole-body inverse kinematics. Hand keypoints reconstructed with MINT are retargeted to Wuji joint configurations.</p>
+            <p class="dataset-description">Egocentric recordings pair video with body motion retargeted to G1 through GMR. Hand keypoints reconstructed with MINT are retargeted to Wuji joint configurations.</p>
             <dl class="dataset-stats dataset-stats-three"><div><dt>hours</dt><dd>22</dd></div><div><dt>tasks</dt><dd>73</dd></div><div><dt>episodes</dt><dd>13,396</dd></div></dl>
           </article>
           <article class="dataset-card dataset-robot reveal" aria-labelledby="robot-data-title">
             <div class="dataset-card-heading"><span class="dataset-stage">STAGE III</span><h3 id="robot-data-title">Real-robot teleoperation data</h3></div>
             <p class="dataset-description">Demonstrations are collected through SONIC whole-body teleoperation, using PICO tracking for body and root references and MANUS gloves for Wuji hand control.</p>
-            <dl class="dataset-stats dataset-stats-four"><div><dt>hours</dt><dd>3.37</dd></div><div><dt>task families</dt><dd>8</dd></div><div><dt>episodes</dt><dd>1,011</dd></div><div><dt>frames</dt><dd>242,668</dd></div></dl>
-            <p class="dataset-task-note">Eight tasks, with apple, lemon, and orange as three variants of fruit pick-and-place.</p>
+            <dl class="dataset-stats dataset-stats-four"><div><dt>hours</dt><dd>3.37</dd></div><div><dt>tasks</dt><dd class="dataset-task-count"><span data-counter-number>8</span><sub>+2</sub></dd></div><div><dt>episodes</dt><dd>1,011</dd></div><div><dt>frames</dt><dd>242,668</dd></div></dl>
           </article>
         </div>
       </div>
@@ -136,6 +141,10 @@
       <p class="citation-status" id="citation-status" role="status" aria-live="polite"></p>
     </section>
   </main>
+  <dialog class="figure-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title">
+    <div class="figure-dialog-toolbar"><h2 id="figure-dialog-title">Method</h2><div><button type="button" id="figure-zoom" aria-pressed="false">Zoom in</button><button type="button" id="figure-close" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button></div></div>
+    <div class="figure-dialog-body" id="figure-dialog-body" tabindex="0" aria-label="Enlarged figure; scroll to explore when zoomed"><img id="figure-dialog-image" alt=""></div>
+  </dialog>
   <footer class="site-footer shell"><span class="footer-brand">WB-WAM</span><span>Humanoid loco-manipulation · Research project</span></footer>
 </body>
 </html>

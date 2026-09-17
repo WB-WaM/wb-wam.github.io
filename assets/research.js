@@ -47,10 +47,18 @@ function setHeadlineNumber(element,label){
   state.visual.textContent=label;
   if(state.visible)animateCounter(state);
 }
-document.querySelectorAll('.dataset-duration strong,.dataset-stats dd').forEach(el=>setHeadlineNumber(el,el.textContent.trim()));
+document.querySelectorAll('.dataset-duration strong,.dataset-stats dd:not(.dataset-task-count),.dataset-task-count [data-counter-number]').forEach(el=>setHeadlineNumber(el,el.textContent.trim()));
 numberMotion.addEventListener('change',()=>{if(numberMotion.matches)headlineCounters.forEach(finishCounter);});
 
 // Seven evenly spaced task axes share a fixed, linear 0–100% scale.
+// Both legend and plot use this single marker definition.
+function modelMarker(model,x,y,size=3){
+  const attrs={fill:model.id==='wbwam'?model.color:'white',stroke:model.color,'stroke-width':1.8,class:'radar-marker'};
+  if(model.marker==='square')return svgNode('rect',{...attrs,x:x-size,y:y-size,width:2*size,height:2*size});
+  if(model.marker==='diamond')return svgNode('polygon',{...attrs,points:`${x},${y-size*1.3} ${x+size*1.3},${y} ${x},${y+size*1.3} ${x-size*1.3},${y}`});
+  if(model.marker==='triangle')return svgNode('polygon',{...attrs,points:`${x},${y-size*1.35} ${x+size*1.3},${y+size} ${x-size*1.3},${y+size}`});
+  return svgNode('circle',{...attrs,cx:x,cy:y,r:size});
+}
 function drawRadar(){
   if($('simulation-chart').hidden)return;
   const width=$('radar-canvas').clientWidth;if(!width)return;
@@ -77,12 +85,7 @@ function drawRadar(){
     const polygon=svgNode('polygon',{points:coords.map(p=>p.join(',')).join(' '),class:'radar-series',stroke:model.color,'stroke-dasharray':model.dash,fill:model.id==='wbwam'?model.color:'none','fill-opacity':'.07'});
     g.append(polygon);
     coords.forEach(([x,y],i)=>{
-      let marker;
-      const attrs={fill:model.id==='wbwam'?model.color:'white',stroke:model.color,'stroke-width':1.8,class:'radar-marker'};
-      if(model.marker==='square')marker=svgNode('rect',{...attrs,x:x-3,y:y-3,width:6,height:6});
-      else if(model.marker==='diamond')marker=svgNode('polygon',{...attrs,points:x+','+(y-4)+' '+(x+4)+','+y+' '+x+','+(y+4)+' '+(x-4)+','+y});
-      else if(model.marker==='triangle')marker=svgNode('polygon',{...attrs,points:x+','+(y-4)+' '+(x+4)+','+(y+3)+' '+(x-4)+','+(y+3)});
-      else marker=svgNode('circle',{...attrs,cx:x,cy:y,r:3});
+      const marker=modelMarker(model,x,y);
       marker.append(svgNode('title',{},model.name+' · '+data.tasks[i]+': '+model.mean[i].toFixed(1)+'%'));
       g.append(marker);
     });
@@ -91,7 +94,7 @@ function drawRadar(){
 }
 data.models.forEach(model=>{
   const button=document.createElement('button');button.className='legend-button';button.setAttribute('aria-pressed','true');button.setAttribute('aria-label',model.name+': show or hide results');
-  const key=svgNode('svg',{viewBox:'0 0 24 12','aria-hidden':'true'});key.append(svgNode('line',{x1:0,y1:6,x2:24,y2:6,stroke:model.color,'stroke-width':2.25,'stroke-dasharray':model.dash}));
+  const key=svgNode('svg',{viewBox:'0 0 24 24','aria-hidden':'true'});key.append(modelMarker(model,12,12,5));
   button.append(key,document.createTextNode(model.name));
   button.addEventListener('click',()=>{if(visibleModels.has(model.id)){if(visibleModels.size===1)return;visibleModels.delete(model.id);}else visibleModels.add(model.id);button.setAttribute('aria-pressed',String(visibleModels.has(model.id)));drawRadar();});
   $('radar-legend').append(button);
@@ -270,7 +273,7 @@ keyboardTabs(document.querySelector('.video-tabs'),'videoDomain',selectDomain);
 $('result-video-link').addEventListener('click',()=>selectDomain($('result-video-link').dataset.domain));
 selectDomain('sim',false,false);
 if(data.methodFigure)$('method-image').src=data.methodFigure;
-if(data.methodFigurePdf){$('method-figure-link').href=data.methodFigurePdf;$('method-fullsize-link').href=data.methodFigurePdf;}
+if(data.methodFigure){$('method-figure-link').href=data.methodFigure;$('method-fullsize-link').href=data.methodFigure;}
 const resourceButtons=[...document.querySelectorAll('[data-resource]')];
 resourceButtons.forEach(button=>{
   const url=data.resources?.[button.dataset.resource];if(!url)return;
