@@ -63,7 +63,7 @@ window.WB_DATA = {
       {...realVideo('Make the bed','make-the-bed','Flatten a lifted corner of the bed.'),file:'assets/real-web/real/make-the-bed.mp4?v=20260917-replacement',poster:'assets/real-web/real/make-the-bed.jpg?v=20260917-replacement'},
       realVideo('Move the pillow','pillow','Pick and place a pillow.'),
       realVideo('Push the cart','push-the-cart','Grasp the handle and move the cart.'),
-      realVideo('Checkout','checkout','Pick up an item, move it across the scanner, and place it down.'),
+      {...realVideo('Checkout','checkout','Pick up an item, move it across the scanner, and place it down.'),file:'assets/real-web/real/checkout.mp4?v=20260918-replacement',poster:'assets/real-web/real/checkout.jpg?v=20260918-replacement'},
       realVideo('Tidy up cloth','cloth','Place a garment in a laundry basket.'),
       {task:'Pick & place fruit',note:'A single WB-WAM policy selects the instructed fruit and completes pick-and-place without separate policies for different targets.',variants:[
         {...realVideo('Apple','apple',''),id:'apple'},
