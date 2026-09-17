@@ -93,20 +93,20 @@ a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:po
 .hero-tail .resource-block{margin:30px 0 0;padding:0}
 .hero-intro .resources-status{margin-top:11px}
 .hero-content{position:relative;margin-top:0}
-.paper-authors{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:8px 25px;width:min(1050px,78%);padding:0;margin:25px auto 0;list-style:none;font-size:19px;line-height:1.5;font-weight:500;letter-spacing:-.2px;color:var(--ink)}
+.paper-authors{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:8px 25px;width:min(1050px,78%);padding:0;margin:25px auto 0;list-style:none;font-size:21px;line-height:1.5;font-weight:500;letter-spacing:-.2px;color:var(--ink)}
 .paper-authors li{white-space:nowrap}
-.paper-authors sup{position:relative;top:-.45em;vertical-align:baseline;font-size:.68em;line-height:0;margin-left:2px;color:var(--blue)}
-.paper-institutions{display:grid;grid-template-columns:1.3fr 1fr 1.1fr;align-items:start;gap:36px;width:min(100%,1040px);margin:0 auto;padding:0 0 44px}
+.paper-authors sup{position:relative;top:-.45em;vertical-align:baseline;font-size:.76em;line-height:0;margin-left:2px;color:#000}
+.paper-institutions{display:grid;grid-template-columns:minmax(0,1fr) max-content minmax(0,1fr);align-items:start;gap:40px;width:min(960px,calc(100% - 64px));margin:28px auto 0;padding:0}
 .institution{min-width:0;text-align:center}
-.institution-logo{position:relative;display:flex;align-items:center;justify-content:center;height:100px;overflow:hidden;background:#fff}
-.institution-logo img{display:block;max-width:100%;height:auto;object-fit:contain}
-.institution-tsinghua .institution-logo img{width:100%}
-.institution-xiongan .institution-logo img{position:absolute;width:218px;max-width:none;height:218px;top:-57px;left:50%;transform:translateX(-50%)}
-.institution-melbourne .institution-logo img{width:100%;filter:contrast(1.2)}
-.institution>span{display:block;margin-top:11px;font-size:13px;line-height:1.5;color:var(--muted)}
-@media(max-width:780px){.paper-authors{width:82%;font-size:17px;gap:8px 20px;margin-top:23px}.paper-institutions{gap:22px;grid-template-columns:1fr 1fr;padding-bottom:35px}.institution-tsinghua{grid-column:1/-1;width:min(380px,85%);justify-self:center}.institution-tsinghua .institution-logo{height:60px}.institution-logo{height:88px}.institution-xiongan .institution-logo img{width:198px;height:198px;top:-52px}.institution>span{font-size:12px}}
-@media(min-width:581px) and (max-width:780px){.paper-authors{display:grid;grid-template-columns:repeat(3,max-content);width:68%;gap:8px 18px;font-size:16px}}
-@media(max-width:480px){.paper-authors{width:calc(100% - 48px);max-width:330px;font-size:16px;gap:7px 22px;margin-top:24px}.paper-institutions{grid-template-columns:1fr;gap:27px;padding:0 0 37px}.institution{width:100%;max-width:300px;justify-self:center}.institution-tsinghua{grid-column:auto;max-width:330px}.institution-logo{height:76px}.institution-tsinghua .institution-logo{height:55px}.institution-xiongan .institution-logo{height:90px}.institution-xiongan .institution-logo img{width:208px;height:208px;top:-55px}.institution-melbourne .institution-logo img{width:260px}.institution>span{margin-top:7px;font-size:12px}}
+.institution-logo{position:relative;display:flex;align-items:center;justify-content:center;height:60px;overflow:hidden;background:transparent}
+.institution-logo img{display:block;max-width:100%;max-height:100%;height:auto;object-fit:contain}
+.institution-tsinghua .institution-logo img{width:min(100%,245px)}
+.institution-xiongan .institution-logo img{position:absolute;width:128px;max-width:none;max-height:none;height:128px;top:-35px;left:50%;transform:translateX(-50%)}
+.institution-melbourne .institution-logo img{width:min(100%,215px)}
+.institution>span{display:block;margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted);white-space:nowrap}
+@media(max-width:780px){.paper-authors{width:82%;font-size:19px;gap:8px 20px;margin-top:23px}.paper-institutions{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:86%;margin-top:26px}.institution-logo{height:50px}.institution-xiongan .institution-logo img{width:106px;height:106px;top:-29px}.institution>span{font-size:11px;white-space:normal}}
+@media(min-width:581px) and (max-width:780px){.paper-authors{display:grid;grid-template-columns:repeat(3,max-content);width:68%;gap:8px 18px;font-size:18px}}
+@media(max-width:480px){.paper-authors{width:calc(100% - 48px);max-width:330px;font-size:18px;gap:7px 22px;margin-top:24px}.paper-institutions{width:calc(100% - 36px);gap:12px;margin-top:26px}.institution-logo{height:40px}.institution-xiongan .institution-logo img{width:85px;height:85px;top:-23px}.institution>span{margin-top:6px;font-size:10px;line-height:1.4}}
 @media(max-width:1000px){.hero-with-image .hero-title{width:70%;font-size:clamp(26px,3.2vw,32px)}.hero-tail{width:68%}.hero-tail .hero-summary{font-size:18px}.hero-tail .desktop-break{display:none}}
 @media(max-width:780px){.hero-intro{min-height:max(640px,calc(100svh - 69px));padding:48px 0 72px}.hero-robot{top:calc(50% - 27vw)}.hero-intro .hero-eyebrow{font-size:11px;letter-spacing:1.4px}.hero-with-image .hero-title{width:72%;margin-top:27px;font-size:clamp(22px,3.5vw,29px);letter-spacing:-.7px}.hero-with-image .paper-name{font-size:58px;margin-bottom:26px;letter-spacing:-2px}.hero-tail{width:min(580px,76%);margin-top:26px}.hero-tail .hero-summary{font-size:17px}.hero-tail .resource-block{margin-top:25px}}
 @media(min-width:581px) and (max-width:780px){.hero-with-image .hero-title .desktop-break{display:initial}}
