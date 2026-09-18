@@ -166,3 +166,33 @@
   }, {threshold:0.15});
   reveal.observe($('dataset-donut'));
 })();
+
+// A quiet explanation on hover, keyboard focus, or tap; never a native title popup.
+(() => {
+  document.querySelectorAll('[data-note-tooltip]').forEach(note => {
+    const trigger = note.querySelector('.dataset-note-trigger');
+    const tooltip = note.querySelector('[role="tooltip"]');
+    let timer, pinned = false;
+    const show = () => { clearTimeout(timer);tooltip.hidden = false; };
+    const hide = () => { clearTimeout(timer);tooltip.hidden = true;pinned = false; };
+    const leave = () => {
+      clearTimeout(timer);
+      if (!pinned && !trigger.matches(':focus-visible')) timer = setTimeout(hide, 120);
+    };
+    trigger.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      clearTimeout(timer);timer = setTimeout(show, 220);
+    });
+    trigger.addEventListener('pointerleave', leave);
+    tooltip.addEventListener('pointerenter', show);
+    tooltip.addEventListener('pointerleave', leave);
+    trigger.addEventListener('focus', () => { if (trigger.matches(':focus-visible')) show(); });
+    trigger.addEventListener('blur', hide);
+    trigger.addEventListener('click', () => {
+      if (pinned) hide();
+      else { pinned = true;show(); }
+    });
+    document.addEventListener('pointerdown', event => { if (!note.contains(event.target)) hide(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
+  });
+})();
