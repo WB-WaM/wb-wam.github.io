@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#ffffff">
   <title>WB-WAM · Humanoid Loco-Manipulation</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='52' text-anchor='middle' font-size='54' font-family='Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/research.css?v=20260925-simulation-sd">
-  <script src="assets/results-data.js?v=20260925-simulation-sd" defer></script>
-  <script src="assets/research.js?v=20260925-simulation-sd" defer></script>
+  <link rel="stylesheet" href="assets/research.css?v=20260925-label-typography">
+  <script src="assets/results-data.js?v=20260925-label-typography" defer></script>
+  <script src="assets/research.js?v=20260925-label-typography" defer></script>
   <script src="assets/figure-interactions.js?v=20260918-pico-tooltip" defer></script>
 </head>
 <body>
@@ -59,16 +59,16 @@
       </div>
     </section>
     <section class="method-section section shell" id="method" aria-labelledby="method-title">
-      <div class="section-heading"><div><div class="section-kicker reveal">01 / METHOD</div><h2 class="section-title reveal" id="method-title">Whole-body pre-training.<br><span class="muted">A three-stage framework.</span></h2></div></div>
+      <div class="section-heading"><div><div class="section-kicker reveal">01 / Method</div><h2 class="section-title reveal" id="method-title">Whole-body pre-training.<br><span class="muted">A three-stage framework.</span></h2></div></div>
       <p class="method-intro reveal">WB-WAM incorporates explicit whole-body action supervision into generative video pre-training, jointly learning visual dynamics and action trajectories in a shared physical action space.</p>
       <figure class="paper-figure method-paper-figure reveal"><a class="method-figure-link" id="method-figure-link" href="assets/method-pipeline.png" data-figure-title="WB-WAM architecture and three-stage training" aria-label="Enlarge the WB-WAM method figure"><img id="method-image" src="assets/method-pipeline.png" width="3000" height="1802" loading="lazy" decoding="async" alt="WB-WAM architecture and three-stage training: heterogeneous pre-training, retargeted PICO mid-training, and robot post-training. Video and action experts model visual dynamics and physical references, with SONIC for body and root control and direct commands for the hands."></a><figcaption><p>Top: Progressive training integrates heterogeneous supervision, retargeted PICO motion, and real-robot demonstrations. Bottom: Video and action experts jointly model visual dynamics and whole-body actions conditioned on vision, language, and proprioception. Body and root references are executed through SONIC, while hand references directly control the finger joints.</p><a id="method-fullsize-link" href="assets/method-pipeline.png" data-figure-title="WB-WAM architecture and three-stage training">View full-size figure <span aria-hidden="true">↗</span></a></figcaption></figure>
       <div class="training-summary reveal"><article><span>Stage I</span><h3>Heterogeneous pre-training</h3><p>Joint video and action learning from heterogeneous datasets with complementary body, root, and dexterous hand annotations.</p></article><article><span>Stage II</span><h3>PICO mid-training</h3><p>Motion transfer from egocentric human demonstrations retargeted to G1, with complete whole-body action supervision.</p></article><article><span>Stage III</span><h3>Robot post-training</h3><p>Task-specific adaptation using robot demonstrations and auxiliary forward kinematics supervision.</p></article></div>
     </section>
     <section class="datasets-section section shell" id="datasets" aria-labelledby="datasets-title">
-      <div class="section-heading"><div><div class="section-kicker reveal">02 / DATASETS</div><h2 class="section-title reveal" id="datasets-title">WB-Datasets.<br><span class="muted">Data for each training stage.</span></h2></div><p class="section-aside reveal">Heterogeneous pre-training, human demonstrations,<br>and real-robot teleoperation.</p></div>
+      <div class="section-heading"><div><div class="section-kicker reveal">02 / Datasets</div><h2 class="section-title reveal" id="datasets-title">WB-Datasets.<br><span class="muted">Data for each training stage.</span></h2></div><p class="section-aside reveal">Heterogeneous pre-training, human demonstrations,<br>and real-robot teleoperation.</p></div>
       <div class="datasets-grid">
         <article class="dataset-card dataset-pretrain reveal" aria-labelledby="pretrain-data-title">
-          <div class="dataset-card-heading"><span class="dataset-stage">STAGE I</span><h3 id="pretrain-data-title">Heterogeneous pre-training data</h3></div>
+          <div class="dataset-card-heading"><span class="dataset-stage">Stage I</span><h3 id="pretrain-data-title">Heterogeneous pre-training data</h3></div>
           <div class="dataset-duration"><strong>1,880.2</strong><span>hours</span></div>
           <p class="dataset-description">Nine external datasets provide complementary supervision through video paired with body and hand motion, video paired with hand motion, and text-conditioned body motion.</p>
           <figure class="dataset-figure">
@@ -84,7 +84,7 @@
         </article>
         <div class="dataset-transfer">
           <article class="dataset-card dataset-pico reveal" aria-labelledby="pico-data-title">
-            <div class="dataset-card-heading"><span class="dataset-stage">STAGE II</span><h3 id="pico-data-title">PICO whole-body motion data</h3></div>
+            <div class="dataset-card-heading"><span class="dataset-stage">Stage II</span><h3 id="pico-data-title">PICO whole-body motion data</h3></div>
             <p class="dataset-description">Egocentric recordings pair video with body motion retargeted to G1 through GMR. Hand keypoints reconstructed with MINT are retargeted to Wuji joint configurations.</p>
             <dl class="dataset-stats dataset-stats-three"><div><dt>hours</dt><dd>22</dd></div><div><dt>tasks</dt><dd>73</dd></div><div><dt>episodes</dt><dd>13,396</dd></div></dl>
             <p class="dataset-stat-note" data-note-tooltip>
@@ -93,7 +93,7 @@
             </p>
           </article>
           <article class="dataset-card dataset-robot reveal" aria-labelledby="robot-data-title">
-            <div class="dataset-card-heading"><span class="dataset-stage">STAGE III</span><h3 id="robot-data-title">Real-robot teleoperation data</h3></div>
+            <div class="dataset-card-heading"><span class="dataset-stage">Stage III</span><h3 id="robot-data-title">Real-robot teleoperation data</h3></div>
             <p class="dataset-description">Demonstrations are collected through SONIC whole-body teleoperation, using PICO tracking for body and root references and MANUS gloves for Wuji hand control.</p>
             <dl class="dataset-stats dataset-stats-four"><div><dt>hours</dt><dd>3.37</dd></div><div><dt>tasks</dt><dd class="dataset-task-count"><span data-counter-number>8</span><sub>+2</sub></dd></div><div><dt>episodes</dt><dd>1,011</dd></div><div><dt>frames</dt><dd>242,668</dd></div></dl>
           </article>
@@ -102,7 +102,7 @@
     </section>
     <section class="motion-section section" id="in-motion" aria-labelledby="motion-title">
       <div class="shell">
-        <div class="section-heading"><div><div class="section-kicker reveal">03 / TASK DEMONSTRATIONS</div><h2 class="section-title reveal" id="motion-title">Whole-body skills.<br><span class="muted">In simulation and the real world.</span></h2></div><p class="section-aside reveal">Task-level videos accompany<br>the quantitative evaluations.</p></div>
+        <div class="section-heading"><div><div class="section-kicker reveal">03 / Task demonstrations</div><h2 class="section-title reveal" id="motion-title">Whole-body skills.<br><span class="muted">In simulation and the real world.</span></h2></div><p class="section-aside reveal">Task-level videos accompany<br>the quantitative evaluations.</p></div>
         <div class="video-tabs" role="tablist" aria-label="Select video collection"><button role="tab" id="video-tab-sim" aria-selected="true" aria-controls="video-panel" data-video-domain="sim">Simulation <span>7 tasks</span></button><button role="tab" id="video-tab-real" aria-selected="false" aria-controls="video-panel" tabindex="-1" data-video-domain="real">Real robot <span>8 tasks</span></button><button role="tab" id="video-tab-success" aria-selected="false" aria-controls="video-panel" tabindex="-1" data-video-domain="success">5 consecutive successes <span>2 tasks</span></button></div>
         <div class="video-panel" id="video-panel" role="tabpanel" aria-labelledby="video-tab-sim">
           <div class="featured-video">
@@ -111,7 +111,7 @@
               <div class="camera-switch" id="fruit-switch" role="group" aria-label="Fruit demonstration" hidden><button type="button" data-fruit="apple" aria-pressed="true" aria-controls="task-video">Apple</button><button type="button" data-fruit="orange" aria-pressed="false" aria-controls="task-video">Orange</button><button type="button" data-fruit="lemon" aria-pressed="false" aria-controls="task-video">Lemon</button></div>
               <div class="video-meta"><span class="video-quality" id="video-quality">Simulation rollout</span><span class="playback-speed" id="playback-speed" hidden>Playback: 2× speed</span></div>
             </div>
-            <div class="video-stage"><span class="media-badge" id="video-badge">SIMULATION · HUMANOIDARENA</span><div class="video-placeholder" id="video-placeholder"><span class="video-outline" aria-hidden="true">▷</span><h3 id="video-task-title">Football</h3><p>Video unavailable.</p></div><video id="task-video" controls playsinline muted preload="metadata" aria-label="Football simulation rollout" hidden></video><img class="video-loading-poster" id="video-loading-poster" alt="" aria-hidden="true" hidden><div class="video-stage-footer" id="video-stage-footer"><span>16:9 video</span></div></div>
+            <div class="video-stage"><span class="media-badge" id="video-badge">Simulation · HumanoidArena</span><div class="video-placeholder" id="video-placeholder"><span class="video-outline" aria-hidden="true">▷</span><h3 id="video-task-title">Football</h3><p>Video unavailable.</p></div><video id="task-video" controls playsinline muted preload="metadata" aria-label="Football simulation rollout" hidden></video><img class="video-loading-poster" id="video-loading-poster" alt="" aria-hidden="true" hidden><div class="video-stage-footer" id="video-stage-footer"><span>16:9 video</span></div></div>
             <div class="video-caption"><div class="video-caption-heading"><h3 id="video-caption-title">Football</h3><span id="video-position">01 / 07</span></div><p id="video-caption-text">HumanoidArena evaluation with SONIC as the execution backend.</p><p class="video-status" id="video-status" role="status" aria-live="polite"></p></div>
           </div>
           <div class="task-browser"><h3 id="video-list-title">Simulation tasks</h3><div class="task-buttons" id="task-buttons" role="group" aria-label="Choose a task video"></div><p class="media-note" id="media-note">Two camera views of each simulation rollout. Switching views preserves playback progress.</p></div>
@@ -119,10 +119,10 @@
       </div>
     </section>
     <section class="results-section section shell" id="results" aria-labelledby="results-title">
-      <div class="section-heading"><div><div class="section-kicker reveal">04 / EVALUATION</div><h2 class="section-title reveal" id="results-title">Performance.<br><span class="muted">Beyond the demo.</span></h2></div><p class="section-aside reveal">Simulation benchmarks, physical execution,<br>and task-aligned PICO transfer.</p></div>
+      <div class="section-heading"><div><div class="section-kicker reveal">04 / Evaluation</div><h2 class="section-title reveal" id="results-title">Performance.<br><span class="muted">Beyond the demo.</span></h2></div><p class="section-aside reveal">Simulation benchmarks, physical execution,<br>and task-aligned PICO transfer.</p></div>
       <div class="results-tabs" role="tablist" aria-label="Select evaluation"><button role="tab" id="tab-sim" aria-selected="true" aria-controls="results-panel" data-result="sim">Simulation</button><button role="tab" id="tab-real" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-result="real">Real world</button><button role="tab" id="tab-pico" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-result="pico">Data efficiency</button></div>
       <div class="results-panel" role="tabpanel" id="results-panel" aria-labelledby="tab-sim" tabindex="0">
-        <div class="result-story"><span class="chart-eyebrow" id="result-eyebrow">HUMANOIDARENA · SONIC</span><div class="result-big"><span id="result-value">81.9</span><span>%</span></div><h3 id="result-title">Mean success across seven tasks.</h3><p id="result-description">WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.</p><div class="result-footnote" id="result-footnote">Baseline results are reported by HumanoidArena under the SONIC setting.</div><a class="section-link" href="#in-motion" id="result-video-link">Simulation task videos <span aria-hidden="true">↑</span></a></div>
+        <div class="result-story"><span class="chart-eyebrow" id="result-eyebrow">HumanoidArena · SONIC</span><div class="result-big"><span id="result-value">81.9</span><span>%</span></div><h3 id="result-title">Mean success across seven tasks.</h3><p id="result-description">WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.</p><div class="result-footnote" id="result-footnote">Baseline results are reported by HumanoidArena under the SONIC setting.</div><a class="section-link" href="#in-motion" id="result-video-link">Simulation task videos <span aria-hidden="true">↑</span></a></div>
         <div class="chart-wrap">
           <div id="simulation-chart">
             <div class="chart-heading"><h3>Success rate by task</h3><span>0–100% · higher is better</span></div>
@@ -134,7 +134,7 @@
         </div>
       </div>
       <div class="simulation-comparison" id="simulation-values">
-        <div class="comparison-heading"><div><span class="chart-eyebrow">TASK-WISE COMPARISON</span><h3>WB-WAM and the strongest reported baselines</h3></div><span class="comparison-unit">Success rate (%)</span></div>
+        <div class="comparison-heading"><div><span class="chart-eyebrow">Task-wise comparison</span><h3>WB-WAM and the strongest reported baselines</h3></div><span class="comparison-unit">Success rate (%)</span></div>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Task-wise simulation comparison; scroll horizontally on small screens"><table id="simulation-table"><caption class="sr-only">HumanoidArena SONIC setting. WB-WAM compared with the best reported baseline for each task.</caption><thead></thead><tbody></tbody></table></div>
         <p class="comparison-note">Each task is compared with its strongest reported SONIC baseline. Mean SR lists the individual model averages across all seven tasks. Values are shown as mean ± standard deviation.</p>
       </div>

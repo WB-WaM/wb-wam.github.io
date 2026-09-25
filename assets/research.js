@@ -131,9 +131,9 @@ const oursStd=[...ours.sd,ours.overallSd];
 [...ours.mean,ours.overall].forEach((value,i)=>{const td=document.createElement('td');td.append(simulationValue(value,oursStd[i]));oursRow.append(td);});
 $('simulation-table').querySelector('tbody').append(bestRow,oursRow);
 const results={
-  sim:{eyebrow:'HUMANOIDARENA · SONIC',value:'81.9',title:'Mean success across seven tasks.',description:'WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.',footnote:'Baseline results are reported by HumanoidArena under the SONIC setting.'},
-  real:{eyebrow:'FIVE REAL-WORLD TASKS',value:'84.0',title:'Mean success on the physical robot.',description:'The advantage extends to physical task execution. Without PICO mid-training, WB-WAM achieves 84.0% mean success across five tasks, compared with 80.0% for OpenWAM, the strongest evaluated baseline.',footnote:'Six baselines · Same task-specific robot demonstrations · 20 trials per task and policy.',chart:'Mean success rate (%)',rows:[['ACT',20],['π₀.₅',52],['GR00T N1.6',42],['Fast-WAM',6],['DiT4DiT',31],['OpenWAM',80],['WB-WAM',84,true]]},
-  pico:{eyebrow:'TASK-ALIGNED PICO TRANSFER',value:'73.8',title:'Mid-training with fewer robot demonstrations.',description:'Task-aligned PICO mid-training achieves higher mean success with 30 robot demonstrations per task than direct post-training with 100, reducing robot demonstration requirements by 70%.',footnote:'Four-task transfer study. PICO includes human demonstrations of the evaluated tasks.',chart:'Mean success rate (%)',rows:[['Direct · 30',48.75],['Direct · 100',65],['PICO + 30',73.75,true]]}
+  sim:{eyebrow:'HumanoidArena · SONIC',value:'81.9',title:'Mean success across seven tasks.',description:'WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.',footnote:'Baseline results are reported by HumanoidArena under the SONIC setting.'},
+  real:{eyebrow:'Five real-world tasks',value:'84.0',title:'Mean success on the physical robot.',description:'The advantage extends to physical task execution. Without PICO mid-training, WB-WAM achieves 84.0% mean success across five tasks, compared with 80.0% for OpenWAM, the strongest evaluated baseline.',footnote:'Six baselines · Same task-specific robot demonstrations · 20 trials per task and policy.',chart:'Mean success rate (%)',rows:[['ACT',20],['π₀.₅',52],['GR00T N1.6',42],['Fast-WAM',6],['DiT4DiT',31],['OpenWAM',80],['WB-WAM',84,true]]},
+  pico:{eyebrow:'Task-aligned PICO transfer',value:'73.8',title:'Mid-training with fewer robot demonstrations.',description:'Task-aligned PICO mid-training achieves higher mean success with 30 robot demonstrations per task than direct post-training with 100, reducing robot demonstration requirements by 70%.',footnote:'Four-task transfer study. PICO includes human demonstrations of the evaluated tasks.',chart:'Mean success rate (%)',rows:[['Direct · 30',48.75],['Direct · 100',65],['PICO + 30',73.75,true]]}
 };
 function selectResult(key,focus=false){
   const r=results[key];
@@ -174,9 +174,9 @@ new ResizeObserver(()=>requestAnimationFrame(drawRadar)).observe($('radar-canvas
 selectResult('sim');
 
 const videoCollections={
-  sim:{rate:1,label:'Simulation rollout',badge:'SIMULATION · HUMANOIDARENA',heading:'Simulation tasks',note:'Two camera views of each simulation rollout. Switching views preserves playback progress.'},
-  real:{rate:2,label:'Real robot · Unitree G1',badge:'REAL ROBOT · UNITREE G1',heading:'Real-robot tasks',note:'Real-world deployments cover locomotion and manipulation, together with language-conditioned fruit selection and placement. Videos play at 2× speed by default.'},
-  success:{rate:5,label:'Five consecutive successes',badge:'REAL ROBOT · CONSECUTIVE SUCCESSES',heading:'Repeated task execution',note:'Each video shows five consecutive successful task executions. Videos play at 5× speed by default.'}
+  sim:{rate:1,label:'Simulation rollout',badge:'Simulation · HumanoidArena',heading:'Simulation tasks',note:'Two camera views of each simulation rollout. Switching views preserves playback progress.'},
+  real:{rate:2,label:'Real robot · Unitree G1',badge:'Real robot · Unitree G1',heading:'Real-robot tasks',note:'Real-world deployments cover locomotion and manipulation, together with language-conditioned fruit selection and placement. Videos play at 2× speed by default.'},
+  success:{rate:5,label:'Five consecutive successes',badge:'Real robot · Consecutive successes',heading:'Repeated task execution',note:'Each video shows five consecutive successful task executions. Videos play at 5× speed by default.'}
 };
 let videoDomain='sim',videoIndex=0,videoView='world',videoFruit='apple',pendingVideo=null,videoRequest=0;
 const player=$('task-video');
