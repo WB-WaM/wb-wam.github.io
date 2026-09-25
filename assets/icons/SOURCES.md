@@ -23,8 +23,15 @@ These are supplied for service/resource links, not as WB-WAM's own logo.
 
 ## Website favicon
 
-The robot favicons were rendered locally from the existing U+1F916 robot
+The active project mark is `wb.svg`, a simple WB extension of this site's
+original blue W favicon, selected on 2026-09-25. Its blue is #286dc9, with
+white rounded strokes. It is used in the navigation and exported to
+`wb-16.png`, `wb-32.png`, `wb-180.png`, `wb-512.png`, and `wb-v1.ico`.
+The root `favicon.ico` and `apple-touch-icon.png` are fallback copies of
+the same WB artwork. The named WB files avoid reusing old emoji icon URLs.
+
+The legacy robot favicons were rendered locally from the existing U+1F916 robot
 emoji using the macOS Apple Color Emoji font on 2026-09-25. The font file
-is not redistributed. `robot-16.png`, `robot-32.png`, the root `favicon.ico`,
-and `apple-touch-icon.png` preserve the emoji favicon selected for this site;
-they are not original WB-WAM artwork or Simple Icons assets.
+is not redistributed. `robot-16.png` and `robot-32.png` remain as legacy
+assets but are no longer linked by the site. They are not original WB-WAM
+artwork or Simple Icons assets.

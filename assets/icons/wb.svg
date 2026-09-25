@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 96 96">
+  <title>WB — original blue lettermark style</title>
+  <rect width="96" height="96" rx="18" fill="#286dc9"/>
+  <g fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 31L20 65L30 31L40 65L48 31"/>
+    <path d="M58 31V65M58 31H68C84 31 84 48 68 48H58M58 48H70C86 48 86 65 70 65H58"/>
+  </g>
+</svg>
