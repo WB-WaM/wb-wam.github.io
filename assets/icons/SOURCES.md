@@ -21,17 +21,13 @@ Retrieved 2026-09-17. All SVG files passed `xmllint --noout`.
 
 These are supplied for service/resource links, not as WB-WAM's own logo.
 
-## Website favicon
+## WB-WAM brand assets
 
-The active project mark is `wb.svg`, a simple WB extension of this site's
-original blue W favicon, selected on 2026-09-25. Its blue is #286dc9, with
-white rounded strokes. It is used in the navigation and exported to
-`wb-16.png`, `wb-32.png`, `wb-180.png`, `wb-512.png`, and `wb-v1.ico`.
-The root `favicon.ico` and `apple-touch-icon.png` are fallback copies of
-the same WB artwork. The named WB files avoid reusing old emoji icon URLs.
+The project owner supplied the following artwork on 2026-09-25:
 
-The legacy robot favicons were rendered locally from the existing U+1F916 robot
-emoji using the macOS Apple Color Emoji font on 2026-09-25. The font file
-is not redistributed. `robot-16.png` and `robot-32.png` remain as legacy
-assets but are no longer linked by the site. They are not original WB-WAM
-artwork or Simple Icons assets.
+- `wbwam-icon.png`: `Weixin Image_20260925225208_336_35.png`, 1024 × 1024; used for navigation, the favicon and the Apple touch icon.
+- `../wbwam-logo.png`: `Weixin Image_20260925225138_335_35.png`, 2172 × 724; used as the README title.
+
+The original PNG files are preserved without visual edits. The root `favicon.png`
+and `apple-touch-icon.png` contain the same artwork. These replace the previous blue WB and robot
+emoji icons. The service-button brand assets above retain their own attribution.
