@@ -21,7 +21,7 @@ window.WB_DATA = {
     {id:'dp',name:'DP',color:'#bb8937',dash:'9 4',marker:'diamond',mean:[45,36.7,75,85,78.3,76.7,23.3],sd:[10.8,4.7,4.1,10.8,14.3,2.4,6.2],overall:60,overallSd:24.2},
     {id:'fm',name:'FM',color:'#4b8e80',dash:'2 3',marker:'square',mean:[13.3,38.3,73.3,70,15,70,38.3],sd:[2.4,4.7,6.2,4.1,7.1,8.2,14.3],overall:45.6,overallSd:25.2},
     {id:'pi05',name:'π₀.₅',color:'#a5759c',dash:'9 3 2 3',marker:'circle',mean:[10,43.3,71.7,66.7,73.3,70,23.3],sd:[4.1,6.2,11.8,6.2,2.4,0,6.2],overall:51.2,overallSd:24.8},
-    {id:'wbwam',name:'WB-WAM',color:'#286dc9',dash:'',marker:'circle',mean:[70.0,65.0,86.7,98.3,95.0,81.7,76.7],sd:[8.2,4.1,2.4,2.4,4.1,2.4,4.7],overall:81.9,overallSd:12.3}
+    {id:'wbwam',name:'WB-WAM',color:'#7040a0',dash:'',marker:'circle',mean:[70.0,65.0,86.7,98.3,95.0,81.7,76.7],sd:[8.2,4.1,2.4,2.4,4.1,2.4,4.7],overall:81.9,overallSd:12.3}
   ],
   source:{baseline:'Supplied HumanoidArena table, SONIC rows only',wbwam:'WB-WAM paper, active Table I (2026-09-17)',grain:'model × task',unit:'percent success',rounding:'One decimal as reported',scope:'No TWIST2 rows; no synthetic task-wise-best model'},
   // Add local asset paths when final media are available. Empty paths show placeholders.
@@ -30,12 +30,12 @@ window.WB_DATA = {
   // Rounded duration shares transcribed from assets/datasets-overview.png.
   // Preserve these published percentages; do not infer per-source hours.
   pretrainingCorpus:{totalHours:1880.2,groups:[
-    {id:'vbh',name:'Video + body + hand',color:'#3d637b',tint:'#e2ecf1',share:42.9,sources:[
-      {id:'xperience',name:'Xperience',share:19.1,color:'#3d637b'},
-      {id:'hiw',name:'HIW-500',share:17.7,color:'#63889c'},
-      {id:'uniforl',name:'Unitree UnifoRL',share:5.1,color:'#8daabc'},
-      {id:'everyday',name:'Humanoid-Everyday-G1',share:0.9,color:'#b1c5d1'},
-      {id:'gr00t',name:'GR00T-Teleop-G1',share:0.1,color:'#d0dee5'}
+    {id:'vbh',name:'Video + body + hand',color:'#7040a0',tint:'#eee5f6',share:42.9,sources:[
+      {id:'xperience',name:'Xperience',share:19.1,color:'#7040a0'},
+      {id:'hiw',name:'HIW-500',share:17.7,color:'#946ab9'},
+      {id:'uniforl',name:'Unitree UnifoRL',share:5.1,color:'#b494ce'},
+      {id:'everyday',name:'Humanoid-Everyday-G1',share:0.9,color:'#cab4dd'},
+      {id:'gr00t',name:'GR00T-Teleop-G1',share:0.1,color:'#e2d5ed'}
     ]},
     {id:'vh',name:'Video + hand',color:'#9d6c52',tint:'#f3e7df',share:34.9,sources:[
       {id:'egodex',name:'EgoDex',share:34.5,color:'#bb8c72'},

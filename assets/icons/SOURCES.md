@@ -23,12 +23,20 @@ These are supplied for service/resource links, not as WB-WAM's own logo.
 
 ## Website favicon
 
-The active project mark is `wb.svg`, a simple WB extension of this site's
-original blue W favicon, selected on 2026-09-25. Its blue is #286dc9, with
-white rounded strokes. It is used in the navigation and exported to
-`wb-16.png`, `wb-32.png`, `wb-180.png`, `wb-512.png`, and `wb-v1.ico`.
-The root `favicon.ico` and `apple-touch-icon.png` are fallback copies of
-the same WB artwork. The named WB files avoid reusing old emoji icon URLs.
+The active project mark is the purple **02 Chamfer** WB lettermark, selected
+on 2026-09-26 from the project's image-generated design candidates. The
+original PNG artwork was mechanically cropped and resized; its letterforms
+and colors were not redrawn. All exported PNGs retain true alpha transparency.
+
+- `wb-chamfer-v1-wordmark.png`: purple WB plus black WAM, used in navigation.
+- `wb-chamfer-v1-16.png`, `wb-chamfer-v1-32.png`,
+  `wb-chamfer-v1-180.png`, `wb-chamfer-v1-512.png`: WB-only square-canvas icons.
+- `wb-chamfer-v1.ico`: 16, 32, 48, and 64 px browser fallbacks.
+- The root `favicon.ico` and `apple-touch-icon.png` are fallback copies.
+
+Versioned filenames avoid reusing the previous blue-WB icon URLs.
+The former `wb.svg`, `wb-*.png`, and `wb-v1.ico` assets remain available
+but are no longer referenced by the page.
 
 The legacy robot favicons were rendered locally from the existing U+1F916 robot
 emoji using the macOS Apple Color Emoji font on 2026-09-25. The font file
