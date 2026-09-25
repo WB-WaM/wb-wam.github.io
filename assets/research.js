@@ -104,27 +104,34 @@ const heading=document.createElement('tr');
 $('simulation-table').querySelector('thead').append(heading);
 const baselines=data.models.filter(model=>model.id!=='wbwam');
 const ours=data.models.find(model=>model.id==='wbwam');
+function simulationValue(mean,sd){
+  const value=document.createElement('strong'),spread=document.createElement('span');
+  spread.className='metric-sd';spread.textContent=' ± '+sd.toFixed(1);
+  value.append(document.createTextNode(mean.toFixed(1)),spread);
+  return value;
+}
 const bestRow=document.createElement('tr');
 const bestName=document.createElement('th');bestName.scope='row';bestName.textContent='Best baseline';
 const bestDetail=document.createElement('span');bestDetail.className='table-sublabel';bestDetail.textContent='reported, per task';bestName.append(bestDetail);bestRow.append(bestName);
 data.tasks.forEach((_,i)=>{
   const best=baselines.reduce((a,b)=>b.mean[i]>a.mean[i]?b:a);
-  const td=document.createElement('td'),name=document.createElement('span'),value=document.createElement('strong');
-  name.className='baseline-name';name.textContent=best.name;value.textContent=best.mean[i].toFixed(1);td.append(name,value);bestRow.append(td);
+  const td=document.createElement('td'),name=document.createElement('span'),value=simulationValue(best.mean[i],best.sd[i]);
+  name.className='baseline-name';name.textContent=best.name;td.append(name,value);bestRow.append(td);
 });
 const means=document.createElement('td');means.className='baseline-means';
 const meanList=document.createElement('div');meanList.className='mean-list';
 [...baselines].sort((a,b)=>a.overall-b.overall).forEach(model=>{
-  const item=document.createElement('span'),name=document.createElement('span'),value=document.createElement('strong');
-  name.textContent=model.name;value.textContent=model.overall.toFixed(1);item.append(name,value);meanList.append(item);
+  const item=document.createElement('span'),name=document.createElement('span'),value=simulationValue(model.overall,model.overallSd);
+  name.textContent=model.name;item.append(name,value);meanList.append(item);
 });
 means.append(meanList);bestRow.append(means);
 const oursRow=document.createElement('tr');oursRow.className='ours';
 const oursName=document.createElement('th');oursName.scope='row';oursName.textContent=ours.name;oursRow.append(oursName);
-[...ours.mean,ours.overall].forEach(value=>{const td=document.createElement('td'),strong=document.createElement('strong');strong.textContent=value.toFixed(1);td.append(strong);oursRow.append(td);});
+const oursStd=[...ours.sd,ours.overallSd];
+[...ours.mean,ours.overall].forEach((value,i)=>{const td=document.createElement('td');td.append(simulationValue(value,oursStd[i]));oursRow.append(td);});
 $('simulation-table').querySelector('tbody').append(bestRow,oursRow);
 const results={
-  sim:{eyebrow:'HUMANOIDARENA · SONIC',value:'81.7',title:'Mean success across seven tasks.',description:'WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.',footnote:'Baseline results are reported by HumanoidArena under the SONIC setting.'},
+  sim:{eyebrow:'HUMANOIDARENA · SONIC',value:'81.9',title:'Mean success across seven tasks.',description:'WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.',footnote:'Baseline results are reported by HumanoidArena under the SONIC setting.'},
   real:{eyebrow:'FIVE REAL-WORLD TASKS',value:'84.0',title:'Mean success on the physical robot.',description:'The advantage extends to physical task execution. Without PICO mid-training, WB-WAM achieves 84.0% mean success across five tasks, compared with 80.0% for OpenWAM, the strongest evaluated baseline.',footnote:'Six baselines · Same task-specific robot demonstrations · 20 trials per task and policy.',chart:'Mean success rate (%)',rows:[['ACT',20],['π₀.₅',52],['GR00T N1.6',42],['Fast-WAM',6],['DiT4DiT',31],['OpenWAM',80],['WB-WAM',84,true]]},
   pico:{eyebrow:'TASK-ALIGNED PICO TRANSFER',value:'73.8',title:'Mid-training with fewer robot demonstrations.',description:'Task-aligned PICO mid-training achieves higher mean success with 30 robot demonstrations per task than direct post-training with 100, reducing robot demonstration requirements by 70%.',footnote:'Four-task transfer study. PICO includes human demonstrations of the evaluated tasks.',chart:'Mean success rate (%)',rows:[['Direct · 30',48.75],['Direct · 100',65],['PICO + 30',73.75,true]]}
 };

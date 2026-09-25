@@ -6,10 +6,10 @@
   <meta name="description" content="WB-WAM: Heterogeneous Body–Hand Pre-training for Humanoid Loco-Manipulation. Research overview, benchmark results, and task demonstrations.">
   <meta name="theme-color" content="#ffffff">
   <title>WB-WAM · Humanoid Loco-Manipulation</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23286dc9'/%3E%3Cpath d='M12 22l8 22 12-22 12 22 8-22' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/research.css?v=20260925-author-links">
-  <script src="assets/results-data.js?v=20260925-huggingface" defer></script>
-  <script src="assets/research.js?v=20260917-dataset-numbers" defer></script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='52' text-anchor='middle' font-size='54' font-family='Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/research.css?v=20260925-simulation-sd">
+  <script src="assets/results-data.js?v=20260925-simulation-sd" defer></script>
+  <script src="assets/research.js?v=20260925-simulation-sd" defer></script>
   <script src="assets/figure-interactions.js?v=20260918-pico-tooltip" defer></script>
 </head>
 <body>
@@ -122,7 +122,7 @@
       <div class="section-heading"><div><div class="section-kicker reveal">04 / EVALUATION</div><h2 class="section-title reveal" id="results-title">Performance.<br><span class="muted">Beyond the demo.</span></h2></div><p class="section-aside reveal">Simulation benchmarks, physical execution,<br>and task-aligned PICO transfer.</p></div>
       <div class="results-tabs" role="tablist" aria-label="Select evaluation"><button role="tab" id="tab-sim" aria-selected="true" aria-controls="results-panel" data-result="sim">Simulation</button><button role="tab" id="tab-real" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-result="real">Real world</button><button role="tab" id="tab-pico" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-result="pico">Data efficiency</button></div>
       <div class="results-panel" role="tabpanel" id="results-panel" aria-labelledby="tab-sim" tabindex="0">
-        <div class="result-story"><span class="chart-eyebrow" id="result-eyebrow">HUMANOIDARENA · SONIC</span><div class="result-big"><span id="result-value">81.7</span><span>%</span></div><h3 id="result-title">Mean success across seven tasks.</h3><p id="result-description">WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.</p><div class="result-footnote" id="result-footnote">Baseline results are reported by HumanoidArena under the SONIC setting.</div><a class="section-link" href="#in-motion" id="result-video-link">Simulation task videos <span aria-hidden="true">↑</span></a></div>
+        <div class="result-story"><span class="chart-eyebrow" id="result-eyebrow">HUMANOIDARENA · SONIC</span><div class="result-big"><span id="result-value">81.9</span><span>%</span></div><h3 id="result-title">Mean success across seven tasks.</h3><p id="result-description">WB-WAM exceeds the strongest reported SONIC baseline on all seven HumanoidArena tasks, spanning locomotion, posture adjustment, and object interaction.</p><div class="result-footnote" id="result-footnote">Baseline results are reported by HumanoidArena under the SONIC setting.</div><a class="section-link" href="#in-motion" id="result-video-link">Simulation task videos <span aria-hidden="true">↑</span></a></div>
         <div class="chart-wrap">
           <div id="simulation-chart">
             <div class="chart-heading"><h3>Success rate by task</h3><span>0–100% · higher is better</span></div>
@@ -136,7 +136,7 @@
       <div class="simulation-comparison" id="simulation-values">
         <div class="comparison-heading"><div><span class="chart-eyebrow">TASK-WISE COMPARISON</span><h3>WB-WAM and the strongest reported baselines</h3></div><span class="comparison-unit">Success rate (%)</span></div>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Task-wise simulation comparison; scroll horizontally on small screens"><table id="simulation-table"><caption class="sr-only">HumanoidArena SONIC setting. WB-WAM compared with the best reported baseline for each task.</caption><thead></thead><tbody></tbody></table></div>
-        <p class="comparison-note">Each task is compared with its strongest reported SONIC baseline. Mean SR lists the individual model averages across all seven tasks.</p>
+        <p class="comparison-note">Each task is compared with its strongest reported SONIC baseline. Mean SR lists the individual model averages across all seven tasks. Values are shown as mean ± standard deviation.</p>
       </div>
     </section>
     <section class="citation-section shell" id="bibtex" aria-labelledby="bibtex-title">

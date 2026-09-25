@@ -1,5 +1,6 @@
-/* Means and SDs are transcribed percentages. Only means are displayed.
-   WB-WAM and overall SDs: active paper Table I (2026-09-17).
+/* Means and SDs are transcribed percentages. The radar displays means;
+   the simulation table displays means and SDs.
+   Latest WB-WAM results and displayed baseline statistics: user-provided updates.
    Baseline task-wise values: supplied HumanoidArena SONIC-row screenshots.
    Overall SDs are preserved as reported, never averaged or reconstructed. */
 'use strict';
@@ -18,9 +19,9 @@ window.WB_DATA = {
   models: [
     {id:'act',name:'ACT',color:'#8692a2',dash:'4 4',marker:'triangle',mean:[16.7,18.3,56.7,78.3,73.3,56.7,33.3],sd:[6.2,4.7,2.6,9.4,8.5,6.2,2.4],overall:47.6,overallSd:24.2},
     {id:'dp',name:'DP',color:'#bb8937',dash:'9 4',marker:'diamond',mean:[45,36.7,75,85,78.3,76.7,23.3],sd:[10.8,4.7,4.1,10.8,14.3,2.4,6.2],overall:60,overallSd:24.2},
-    {id:'fm',name:'FM',color:'#4b8e80',dash:'2 3',marker:'square',mean:[13.3,38.3,73.3,70,15,70,38.3],sd:[2.4,4.7,6.2,4.1,7.1,8.2,14.3],overall:45.5,overallSd:25.2},
+    {id:'fm',name:'FM',color:'#4b8e80',dash:'2 3',marker:'square',mean:[13.3,38.3,73.3,70,15,70,38.3],sd:[2.4,4.7,6.2,4.1,7.1,8.2,14.3],overall:45.6,overallSd:25.2},
     {id:'pi05',name:'π₀.₅',color:'#a5759c',dash:'9 3 2 3',marker:'circle',mean:[10,43.3,71.7,66.7,73.3,70,23.3],sd:[4.1,6.2,11.8,6.2,2.4,0,6.2],overall:51.2,overallSd:24.8},
-    {id:'wbwam',name:'WB-WAM',color:'#286dc9',dash:'',marker:'circle',mean:[73.3,58.3,90,93.3,96.7,81.7,78.3],sd:[6.2,4.7,0,2.4,4.7,2.4,2.4],overall:81.7,overallSd:12.8}
+    {id:'wbwam',name:'WB-WAM',color:'#286dc9',dash:'',marker:'circle',mean:[70.0,65.0,86.7,98.3,95.0,81.7,76.7],sd:[8.2,4.1,2.4,2.4,4.1,2.4,4.7],overall:81.9,overallSd:12.3}
   ],
   source:{baseline:'Supplied HumanoidArena table, SONIC rows only',wbwam:'WB-WAM paper, active Table I (2026-09-17)',grain:'model × task',unit:'percent success',rounding:'One decimal as reported',scope:'No TWIST2 rows; no synthetic task-wise-best model'},
   // Add local asset paths when final media are available. Empty paths show placeholders.
