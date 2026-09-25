@@ -1,4 +1,4 @@
-<h1 align="center"><img src="assets/wbwam-logo.png" alt="WB-WAM" width="560"></h1>
+<h1 align="center"><img src="assets/wbwam-logo.png" alt="WB-WAM" width="280"></h1>
 
 Project website for **WB-WAM: Heterogeneous Body–Hand Pretraining for Humanoid Loco-Manipulation**.
 
