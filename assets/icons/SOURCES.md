@@ -21,7 +21,7 @@ Retrieved 2026-09-17. All SVG files passed `xmllint --noout`.
 
 These are supplied for service/resource links, not as WB-WAM's own logo.
 
-## Website favicon
+## WB-WAM brand assets
 
 The active project mark is the purple **02 Chamfer** WB lettermark, selected
 on 2026-09-26 from the project's image-generated design candidates. The
@@ -35,11 +35,13 @@ and colors were not redrawn. All exported PNGs retain true alpha transparency.
 - The root `favicon.ico` and `apple-touch-icon.png` are fallback copies.
 
 Versioned filenames avoid reusing the previous blue-WB icon URLs.
-The former `wb.svg`, `wb-*.png`, and `wb-v1.ico` assets remain available
-but are no longer referenced by the page.
+The previous blue-WB and robot emoji icons have been removed.
 
-The legacy robot favicons were rendered locally from the existing U+1F916 robot
-emoji using the macOS Apple Color Emoji font on 2026-09-25. The font file
-is not redistributed. `robot-16.png` and `robot-32.png` remain as legacy
-assets but are no longer linked by the site. They are not original WB-WAM
-artwork or Simple Icons assets.
+The following owner-supplied artwork from 2026-09-25 is also preserved:
+
+- `wbwam-icon.png`: `Weixin Image_20260925225208_336_35.png`, 1024 × 1024; retained original icon, no longer linked by the page.
+- `../wbwam-logo.png`: `Weixin Image_20260925225138_335_35.png`, 2172 × 724; used as the README title.
+
+These original PNG files are preserved without visual edits, including the
+legacy root `favicon.png` copy. The service-button brand assets above retain
+their own attribution.

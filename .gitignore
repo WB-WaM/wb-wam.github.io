@@ -14,14 +14,6 @@
 !/assets/icons/arxiv.svg
 !/assets/icons/github.svg
 !/assets/icons/huggingface.svg
-!/assets/icons/robot-16.png
-!/assets/icons/robot-32.png
-!/assets/icons/wb.svg
-!/assets/icons/wb-v1.ico
-!/assets/icons/wb-16.png
-!/assets/icons/wb-32.png
-!/assets/icons/wb-180.png
-!/assets/icons/wb-512.png
 !/assets/icons/wb-chamfer-v1.ico
 !/assets/icons/wb-chamfer-v1-16.png
 !/assets/icons/wb-chamfer-v1-32.png
@@ -91,3 +83,7 @@
 !/assets/video-posters/visnavi-ego.jpg
 !/assets/video-posters/visnavi-world.jpg
 !/index.html
+
+!/assets/icons/wbwam-icon.png
+!/assets/wbwam-logo.png
+!/favicon.png
