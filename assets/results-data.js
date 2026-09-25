@@ -46,7 +46,7 @@ window.WB_DATA = {
     ]}
   ]},
   // Leave resource URLs empty until the actual project pages are available.
-  resources:{paper:'',code:'',huggingface:''},
+  resources:{paper:'',code:'',huggingface:'https://huggingface.co/WB-WAM'},
   videos:{
     sim:[
       simulationVideo('Football','kick-football_03_','football'),
