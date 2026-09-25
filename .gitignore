@@ -3,6 +3,8 @@
 !*/
 !/.gitignore
 !/.nojekyll
+!/favicon.ico
+!/apple-touch-icon.png
 !/README.md
 !/assets/datasets-overview.pdf
 !/assets/datasets-overview.png
@@ -12,6 +14,8 @@
 !/assets/icons/arxiv.svg
 !/assets/icons/github.svg
 !/assets/icons/huggingface.svg
+!/assets/icons/robot-16.png
+!/assets/icons/robot-32.png
 !/assets/institutions/melbourne.png
 !/assets/institutions/tsinghua-iiis.png
 !/assets/institutions/xiong-an.jpg

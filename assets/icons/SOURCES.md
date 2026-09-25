@@ -20,3 +20,11 @@ Retrieved 2026-09-17. All SVG files passed `xmllint --noout`.
   - The official brand page expressly provides these assets for use in projects; no separate open-source license was displayed there. Do not label it as CC0.
 
 These are supplied for service/resource links, not as WB-WAM's own logo.
+
+## Website favicon
+
+The robot favicons were rendered locally from the existing U+1F916 robot
+emoji using the macOS Apple Color Emoji font on 2026-09-25. The font file
+is not redistributed. `robot-16.png`, `robot-32.png`, the root `favicon.ico`,
+and `apple-touch-icon.png` preserve the emoji favicon selected for this site;
+they are not original WB-WAM artwork or Simple Icons assets.
